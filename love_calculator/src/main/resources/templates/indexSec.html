@@ -31,6 +31,9 @@
           </div>
         </form>
       </section>
+      <section>
+        <h3 data-th-text="${message}"></h3>
+      </section>
       <section data-th-unless="${#lists.isEmpty(results)}">
         <div>
           <h1><a href="/calculator/list">All Results</a></h1>

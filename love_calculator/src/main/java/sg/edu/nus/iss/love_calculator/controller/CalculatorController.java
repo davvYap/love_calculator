@@ -32,6 +32,8 @@ public class CalculatorController {
         model.addAttribute("result", c.get());
         model.addAttribute("sname", sname);
         model.addAttribute("fname", fname);
+        String message = "%s and %s percentage is %s !".formatted(fname, sname, c.get().getPercentage());
+        model.addAttribute("message", message);
 
         // trying
         List<Calculator> results = calSvc.getAllResults();
