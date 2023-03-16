@@ -65,6 +65,10 @@ public class CalculatorService {
         calRepo.saveResult(cal);
     }
 
+    public Optional<Calculator> getResult(String id) throws IOException {
+        return calRepo.getResult(id);
+    }
+
     public List<Calculator> getAllResults() throws IOException {
         return calRepo.getAllResults();
     }

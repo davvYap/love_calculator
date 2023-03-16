@@ -24,6 +24,13 @@ public class CalculatorRepository {
         redisTemplate.opsForValue().set(calculator.getId(), calculator.toJSON().toString());
     }
 
+    public Optional<Calculator> getResult(String id) throws IOException {
+        String json = redisTemplate.opsForValue().get(id);
+        Calculator calculator = Calculator.createFromJSON(json);
+        calculator.setId(id);
+        return Optional.of(calculator);
+    }
+
     public List<Calculator> getAllResults() throws IOException {
         Set<String> redisKeys = redisTemplate.keys("*");
         List<Calculator> results = new LinkedList<>();

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -31,6 +32,16 @@ public class CalculatorController {
         model.addAttribute("result", c.get());
         model.addAttribute("sname", sname);
         model.addAttribute("fname", fname);
+        return "result";
+    }
+
+    @GetMapping(path = "{id}")
+    public String getResult(Model model, @PathVariable String id) throws IOException {
+        Optional<Calculator> cal = calSvc.getResult(id);
+        Calculator result = cal.get();
+        model.addAttribute("result", result);
+        model.addAttribute("sname", result.getSname());
+        model.addAttribute("fname", result.getFname());
         return "result";
     }
 

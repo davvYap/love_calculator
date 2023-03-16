@@ -29,14 +29,18 @@
       </tr>
       <tr data-th-each="result : ${results}">
         <div data-th-unless="${result.percentage} >= 40">
-          <td data-th-text="${result.id}"></td>
+          <td>
+            <a data-th-href="@{/calculator/{id}(id=${result.id})}" data-th-text="${result.id}"></a>
+          </td>
           <td data-th-text="${result.fname}"></td>
           <td data-th-text="${result.sname}"></td>
           <td data-th-text="${result.percentage}"></td>
           <td data-th-text="${result.result}"></td>
         </div>
         <div data-th-if="${result.percentage} >= 40">
-          <td data-th-text="${result.id}" class="bold"></td>
+          <td>
+            <a data-th-href="@{/calculator/{id}(id=${result.id})}" data-th-text="${result.id}"></a>
+          </td>
           <td data-th-text="${result.fname}" class="bold"></td>
           <td data-th-text="${result.sname}" class="bold"></td>
           <td data-th-text="${result.percentage}" class="bold"></td>
