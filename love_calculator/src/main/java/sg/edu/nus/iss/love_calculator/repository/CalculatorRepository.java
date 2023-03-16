@@ -21,7 +21,6 @@ public class CalculatorRepository {
 
     public void saveResult(Optional<Calculator> cal) throws IOException {
         Calculator calculator = cal.get();
-        calculator.setId(Calculator.generateId());
         redisTemplate.opsForValue().set(calculator.getId(), calculator.toJSON().toString());
     }
 

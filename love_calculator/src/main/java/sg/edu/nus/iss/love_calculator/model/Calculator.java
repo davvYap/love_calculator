@@ -16,6 +16,10 @@ public class Calculator {
     private String percentage;
     private String result;
 
+    public Calculator() {
+        this.id = generateId();
+    }
+
     public String getId() {
         return id;
     }
