@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        text-align: center;
+      }
+      table {
+        margin: auto;
+      }
+      .bold {
+        font-weight: bold;
+      }
+    </style>
+    <title>Results</title>
+  </head>
+  <body>
+    <h1>All Results</h1>
+    <table border="1">
+      <tr>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Second Name</th>
+        <th>Percentage of Matching</th>
+        <th>Comment</th>
+      </tr>
+      <tr data-th-each="result : ${results}">
+        <div data-th-unless="${result.percentage} >= 40">
+          <td data-th-text="${result.id}"></td>
+          <td data-th-text="${result.fname}"></td>
+          <td data-th-text="${result.sname}"></td>
+          <td data-th-text="${result.percentage}"></td>
+          <td data-th-text="${result.result}"></td>
+        </div>
+        <div data-th-if="${result.percentage} >= 40">
+          <td data-th-text="${result.id}" class="bold"></td>
+          <td data-th-text="${result.fname}" class="bold"></td>
+          <td data-th-text="${result.sname}" class="bold"></td>
+          <td data-th-text="${result.percentage}" class="bold"></td>
+          <td data-th-text="${result.result}" class="bold"></td>
+        </div>
+      </tr>
+    </table>
+    <br />
+    <button><a href="/">Back</a></button>
+  </body>
+</html>
