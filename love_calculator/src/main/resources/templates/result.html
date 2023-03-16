@@ -14,22 +14,24 @@
   <body>
     <div data-th-object="${result}">
       <div class="container">
-        <table border="1" style="width: 100%">
-          <tr>
-            <th>ID</th>
-            <th>First Name: <span data-th-text="${fname}"></span></th>
-            <th>Second Name: <span data-th-text="${sname}"></span></th>
-            <th>Percentage of Matching</th>
-            <th>Comment</th>
-          </tr>
-          <tr>
-            <td data-th-text="*{id}"></td>
-            <td data-th-text="*{fname}"></td>
-            <td data-th-text="*{sname}"></td>
-            <td data-th-text="*{percentage}"></td>
-            <td data-th-text="*{result}"></td>
-          </tr>
-        </table>
+        <section>
+          <table border="1" style="width: 100%">
+            <tr>
+              <th>ID</th>
+              <th>First Name: <span data-th-text="${fname}"></span></th>
+              <th>Second Name: <span data-th-text="${sname}"></span></th>
+              <th>Percentage of Matching</th>
+              <th>Comment</th>
+            </tr>
+            <tr>
+              <td data-th-text="*{id}"></td>
+              <td data-th-text="*{fname}"></td>
+              <td data-th-text="*{sname}"></td>
+              <td data-th-text="*{percentage}"></td>
+              <td data-th-text="*{result}"></td>
+            </tr>
+          </table>
+        </section>
       </div>
     </div>
   </body>

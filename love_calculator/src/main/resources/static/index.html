@@ -13,22 +13,24 @@
   </head>
   <body>
     <div class="container">
-      <img src="/images/partner.jpg" alt="" width="500px" />
-      <form method="get" action="/calculator">
-        <p>First Name :</p>
-        <input type="text" name="fname" id="fname" placeholder="First person" required />
-        <p>Second Name :</p>
-        <input type="text" name="sname" id="sname" placeholder="Second person" required />
-        <br />
-        <br />
+      <section>
+        <img src="/images/partner.jpg" alt="" width="500px" />
+        <form method="get" action="/calculator">
+          <p>First Name :</p>
+          <input type="text" name="fname" id="fname" placeholder="First person" required />
+          <p>Second Name :</p>
+          <input type="text" name="sname" id="sname" placeholder="Second person" required />
+          <br />
+          <br />
+          <div>
+            <button type="submit">Calculate</button>
+          </div>
+        </form>
         <div>
-          <button type="submit">Calculate</button>
+          <br />
+          <button><a href="/calculator/list">All Results</a></button>
         </div>
-      </form>
-      <div>
-        <br />
-        <button><a href="/calculator/list">All Results</a></button>
-      </div>
+      </section>
     </div>
   </body>
 </html>

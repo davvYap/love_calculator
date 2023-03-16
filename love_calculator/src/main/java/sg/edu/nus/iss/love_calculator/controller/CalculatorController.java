@@ -32,7 +32,11 @@ public class CalculatorController {
         model.addAttribute("result", c.get());
         model.addAttribute("sname", sname);
         model.addAttribute("fname", fname);
-        return "result";
+
+        // trying
+        List<Calculator> results = calSvc.getAllResults();
+        model.addAttribute("results", results);
+        return "indexSec";
     }
 
     @GetMapping(path = "{id}")

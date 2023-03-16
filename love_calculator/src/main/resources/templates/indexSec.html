@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        text-align: center;
+      }
+      table {
+        margin: auto;
+        width: 60%;
+      }
+    </style>
+    <title>Home</title>
+  </head>
+  <body>
+    <div class="container">
+      <section>
+        <img src="/images/partner.jpg" alt="" width="500px" />
+        <form method="get" action="/calculator">
+          <p>First Name :</p>
+          <input type="text" name="fname" id="fname" placeholder="First person" required />
+          <p>Second Name :</p>
+          <input type="text" name="sname" id="sname" placeholder="Second person" required />
+          <br />
+          <br />
+          <div>
+            <button type="submit">Calculate</button>
+          </div>
+        </form>
+      </section>
+      <section data-th-unless="${#lists.isEmpty(results)}">
+        <div>
+          <h1><a href="/calculator/list">All Results</a></h1>
+          <table border="1">
+            <tr>
+              <th>Id</th>
+              <th>First Name</th>
+              <th>Second Name</th>
+              <th>Percentage of Matching</th>
+              <th>Comment</th>
+            </tr>
+            <tr data-th-each="result : ${results}">
+              <div data-th-unless="${result.percentage} >= 40">
+                <td>
+                  <a
+                    data-th-href="@{/calculator/{id}(id=${result.id})}"
+                    data-th-text="${result.id}"></a>
+                </td>
+                <td data-th-text="${result.fname}"></td>
+                <td data-th-text="${result.sname}"></td>
+                <td data-th-text="${result.percentage}"></td>
+                <td data-th-text="${result.result}"></td>
+              </div>
+              <div data-th-if="${result.percentage} >= 40">
+                <td>
+                  <a
+                    data-th-href="@{/calculator/{id}(id=${result.id})}"
+                    data-th-text="${result.id}"></a>
+                </td>
+                <td data-th-text="${result.fname}" class="bold"></td>
+                <td data-th-text="${result.sname}" class="bold"></td>
+                <td data-th-text="${result.percentage}" class="bold"></td>
+                <td data-th-text="${result.result}" class="bold"></td>
+              </div>
+            </tr>
+          </table>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
